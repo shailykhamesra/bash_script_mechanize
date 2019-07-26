@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo 'Which page details would you like to access?';
+read number
+
+for num in $(eval echo "{1..$number}")
+do
+  echo $num
+  echo '** Fetching results from swiggy page '$num'  **';
+  ruby config/swiggy.rb $number
+done
+
+echo '** Data is caputred in the database **';
